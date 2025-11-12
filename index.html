@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>點滴救英文 玩學智造所 | Teaching Resource Hub</title>
+    <link rel="stylesheet" href="styles/main.css" />
+  </head>
+  <body>
+    <header class="top-bar">
+      <button class="sidebar-toggle" aria-label="Toggle navigation">☰</button>
+      <h1>點滴救英文 玩學智造所</h1>
+      <div class="language-toggle" role="group" aria-label="Language selector">
+        <button type="button" data-lang="zh" class="active">中文</button>
+        <button type="button" data-lang="en">English</button>
+      </div>
+    </header>
+    <div class="layout">
+      <nav class="sidebar" aria-label="Section navigation">
+        <h2>資源導覽</h2>
+        <ul class="nav-links"></ul>
+      </nav>
+      <main id="content" tabindex="-1"></main>
+    </div>
+
+    <div class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="modalTitle"></h3>
+          <p id="modalSubtitle"></p>
+        </div>
+        <div class="modal-body">
+          <p id="modalDescription"></p>
+          <div id="modalTutorial"></div>
+        </div>
+        <div class="modal-actions">
+          <a id="modalAssistant" href="#" target="_blank" rel="noopener">開啟小助理</a>
+          <button type="button" id="modalClose">返回</button>
+          <a id="modalLaunch" href="#" target="_blank" rel="noopener">立即體驗</a>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/main.js" type="module"></script>
+  </body>
+</html>

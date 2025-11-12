@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teaching Resources Data Manager</title>
+    <link rel="stylesheet" href="styles/admin.css" />
+  </head>
+  <body>
+    <div class="admin-container">
+      <header class="admin-header">
+        <h1>Teaching Resources Data Manager</h1>
+        <p>Load, edit, and export the bilingual resource entries stored in <code>data/resources.json</code>.</p>
+      </header>
+
+      <section class="panel controls">
+        <button type="button" class="primary" id="reloadJson">Reload JSON</button>
+        <button type="button" class="secondary" id="updateJson">Update JSON File</button>
+        <button type="button" class="primary" id="downloadJson">Save New JSON</button>
+      </section>
+
+      <section class="panel">
+        <h2>Raw JSON Editor</h2>
+        <p>Adjust the JSON manually if needed. All quick edits below keep this view in sync.</p>
+        <textarea id="jsonEditor" spellcheck="false"></textarea>
+        <div class="status-message" id="editorStatus" aria-live="polite"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Quick Edit Form</h2>
+        <p>Edit entries directly. Changes are reflected in the JSON editor automatically.</p>
+        <div class="filter-controls">
+          <label>
+            Section
+            <select id="sectionFilter"></select>
+          </label>
+          <label>
+            Category
+            <select id="categoryFilter" disabled></select>
+          </label>
+        </div>
+        <div class="item-toolbar">
+          <button type="button" class="primary" id="addItem">Add Item</button>
+        </div>
+        <div class="item-list" id="itemList"></div>
+      </section>
+    </div>
+
+    <script src="scripts/admin.js" type="module"></script>
+  </body>
+</html>
