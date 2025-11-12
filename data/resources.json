@@ -25,12 +25,8 @@
                 "zh": "從使用者自訂的單字集出發，系統引導學習者經歷三個階段：初始接觸、閱讀練習與輸出練習，在循序體驗中培養真正的字彙運用力。"
               },
               "tutorialUrl": "",
-<<<<<<< Updated upstream
-              "appUrl": "https://example.com/lexichat",
-              "assistantChatbotUrl": "https://example.com/lexichat-guide-assistant"
-=======
+              "assistantChatbotUrl": "https://example.com/lexichat-guide-assistant",
               "appUrl": "https://chatgpt.com/g/g-KdZt18tsj-dian-di-jiu-ying-wen-dan-zi-xiao-bang-shou"
->>>>>>> Stashed changes
             },
             {
               "id": "idiom-coach",
@@ -43,12 +39,8 @@
                 "zh": "將使用者挑選的單字集自動轉換並封裝成可直接載入至單字複習遊戲的 JSON 檔案，讓遊戲能立即使用這些詞彙資料進行練習。"
               },
               "tutorialUrl": "",
-<<<<<<< Updated upstream
-              "appUrl": "https://example.com/idiom-coach",
+              "appUrl": "https://chatgpt.com/g/g-6911c0976bf08191be8ef71e6eb3cfba-dian-di-jiu-ying-wen-dan-zi-da-bao-ji",
               "assistantChatbotUrl": "https://example.com/idiom-coach-assistant"
-=======
-              "appUrl": "https://chatgpt.com/g/g-6911c0976bf08191be8ef71e6eb3cfba-dian-di-jiu-ying-wen-dan-zi-da-bao-ji"
->>>>>>> Stashed changes
             }
           ]
         },
@@ -70,12 +62,8 @@
                 "zh": "每位玩家寫出四對關鍵詞的「共同特徵」，然後全隊合作猜回原來的排列，趣味十足。"
               },
               "tutorialUrl": "",
-<<<<<<< Updated upstream
-              "appUrl": "https://example.com/word-sprint",
+              "appUrl": "https://ryolutw.github.io/so-clover-ver2/",
               "assistantChatbotUrl": "https://example.com/word-sprint-assistant"
-=======
-              "appUrl": "https://ryolutw.github.io/so-clover-ver2/"
->>>>>>> Stashed changes
             }
           ]
         },
