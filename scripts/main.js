@@ -10,6 +10,9 @@ const languageLabels = {
     tutorialPlaceholder: '影片製作中',
     modalClose: '返回',
     modalLaunch: '立即體驗',
+    modalAssistant: '開啟小助理',
+    categoryPlaceholder: '開發中',
+    sectionPlaceholder: '開發中',
   },
   en: {
     navTitle: 'Navigate Resources',
@@ -17,6 +20,9 @@ const languageLabels = {
     tutorialPlaceholder: 'Tutorial coming soon',
     modalClose: 'Close',
     modalLaunch: 'Try it',
+    modalAssistant: 'Open Assistant',
+    categoryPlaceholder: '開發中 (In development)',
+    sectionPlaceholder: '開發中 (In development)',
   },
 };
 
@@ -32,6 +38,7 @@ const modalDescription = document.getElementById('modalDescription');
 const modalTutorial = document.getElementById('modalTutorial');
 const modalClose = document.getElementById('modalClose');
 const modalLaunch = document.getElementById('modalLaunch');
+const modalAssistant = document.getElementById('modalAssistant');
 
 async function loadResources() {
   try {
@@ -69,14 +76,18 @@ function renderSidebar() {
     const categoryList = document.createElement('div');
     categoryList.className = 'category-list';
 
-    section.categories.forEach((category) => {
+    const categories = Array.isArray(section.categories) ? section.categories : [];
+
+    categories.forEach((category) => {
       const categoryLink = document.createElement('a');
       categoryLink.href = `#${section.id}-${category.id}`;
       categoryLink.textContent = category.title[state.language];
       categoryList.appendChild(categoryLink);
     });
 
-    sectionItem.appendChild(categoryList);
+    if (categories.length) {
+      sectionItem.appendChild(categoryList);
+    }
     navLinks.appendChild(sectionItem);
   });
 }
@@ -94,7 +105,11 @@ function renderContent() {
     heading.textContent = section.title[state.language];
     sectionElement.append(heading);
 
-    section.categories.forEach((category) => {
+    const labels = languageLabels[state.language];
+    let sectionHasItems = false;
+    const categories = Array.isArray(section.categories) ? section.categories : [];
+
+    categories.forEach((category) => {
       const categoryElement = document.createElement('article');
       categoryElement.className = 'category';
       categoryElement.id = `${section.id}-${category.id}`;
@@ -105,14 +120,32 @@ function renderContent() {
       const cardsGrid = document.createElement('div');
       cardsGrid.className = 'cards-grid';
 
-      category.items.forEach((item) => {
-        const card = createItemCard(item, section, category);
-        cardsGrid.appendChild(card);
-      });
+      const items = Array.isArray(category.items) ? category.items : [];
+
+      if (items.length) {
+        sectionHasItems = true;
+        items.forEach((item) => {
+          const card = createItemCard(item, section, category);
+          cardsGrid.appendChild(card);
+        });
+      } else {
+        const placeholder = document.createElement('div');
+        placeholder.className = 'placeholder-card';
+        placeholder.textContent = labels.categoryPlaceholder;
+        cardsGrid.classList.add('is-empty');
+        cardsGrid.appendChild(placeholder);
+      }
 
       categoryElement.append(categoryHeading, cardsGrid);
       sectionElement.appendChild(categoryElement);
     });
+
+    if (!sectionHasItems) {
+      const sectionPlaceholder = document.createElement('p');
+      sectionPlaceholder.className = 'section-placeholder';
+      sectionPlaceholder.textContent = labels.sectionPlaceholder;
+      sectionElement.appendChild(sectionPlaceholder);
+    }
 
     content.appendChild(sectionElement);
   });
@@ -156,6 +189,13 @@ function openModal(item, section, category) {
   }
 
   modalLaunch.href = item.appUrl;
+  if (item.assistantChatbotUrl) {
+    modalAssistant.href = item.assistantChatbotUrl;
+    modalAssistant.classList.remove('is-hidden');
+  } else {
+    modalAssistant.href = '#';
+    modalAssistant.classList.add('is-hidden');
+  }
   modalOverlay.classList.add('active');
   modalOverlay.setAttribute('aria-hidden', 'false');
   modalClose.focus();
@@ -172,6 +212,7 @@ function updateStaticTexts() {
   sidebar.querySelector('h2').textContent = labels.navTitle;
   modalClose.textContent = labels.modalClose;
   modalLaunch.textContent = labels.modalLaunch;
+  modalAssistant.textContent = labels.modalAssistant;
 }
 
 function renderError() {
@@ -182,6 +223,9 @@ function renderError() {
   document.documentElement.lang = state.language === 'zh' ? 'zh-Hant' : 'en';
   modalClose.textContent = labels.modalClose;
   modalLaunch.textContent = labels.modalLaunch;
+  modalAssistant.textContent = labels.modalAssistant;
+  modalAssistant.classList.add('is-hidden');
+  modalAssistant.href = '#';
 }
 
 sidebarToggle.addEventListener('click', () => {

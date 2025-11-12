@@ -6,10 +6,16 @@ const downloadButton = document.getElementById('downloadJson');
 const statusMessage = document.getElementById('editorStatus');
 const sectionFilter = document.getElementById('sectionFilter');
 const categoryFilter = document.getElementById('categoryFilter');
+const addItemButton = document.getElementById('addItem');
 
 let resourcesData = null;
 let selectedSectionId = null;
 let selectedCategoryId = null;
+
+if (addItemButton) {
+  addItemButton.disabled = true;
+  addItemButton.classList.add('disabled');
+}
 
 async function fetchJson() {
   try {
@@ -38,24 +44,29 @@ function syncEditor() {
 function renderQuickEditor() {
   itemList.innerHTML = '';
   if (!resourcesData || !resourcesData.sections?.length) {
+    updateAddButtonState(false);
     itemList.innerHTML = '<p>No items available.</p>';
     return;
   }
 
   const section = resourcesData.sections.find((entry) => entry.id === selectedSectionId);
   if (!section) {
+    updateAddButtonState(false);
     itemList.innerHTML = '<p>Select a section to view its resources.</p>';
     return;
   }
 
   const category = section.categories.find((entry) => entry.id === selectedCategoryId);
   if (!category) {
+    updateAddButtonState(false);
     itemList.innerHTML = '<p>This section has no categories.</p>';
     return;
   }
 
-  if (!category.items.length) {
-    itemList.innerHTML = '<p>No items found in this category.</p>';
+  updateAddButtonState(true);
+
+  if (!category.items?.length) {
+    itemList.innerHTML = '<p>此分類暫無項目 (No items found in this category)。請使用上方按鈕新增。</p>';
     return;
   }
 
@@ -79,14 +90,30 @@ function renderQuickEditor() {
       createField('中文描述', item.description.zh, (value) => updateItem(item, 'description', 'zh', value), true),
       createField('English description', item.description.en, (value) => updateItem(item, 'description', 'en', value), true),
       createField('Tutorial URL', item.tutorialUrl, (value) => updateItem(item, 'tutorialUrl', null, value)),
-      createField('Web app URL', item.appUrl, (value) => updateItem(item, 'appUrl', null, value))
+      createField('Web app URL', item.appUrl, (value) => updateItem(item, 'appUrl', null, value)),
+      createField('Assistant chatbot URL', item.assistantChatbotUrl, (value) => updateItem(item, 'assistantChatbotUrl', null, value))
     );
 
-    card.append(heading, meta, fieldGrid);
+    const actions = document.createElement('div');
+    actions.className = 'item-actions';
+    const deleteButton = document.createElement('button');
+    deleteButton.type = 'button';
+    deleteButton.className = 'danger';
+    deleteButton.textContent = 'Delete item';
+    deleteButton.addEventListener('click', () => deleteItem(category, item.id));
+    actions.appendChild(deleteButton);
+
+    card.append(heading, meta, fieldGrid, actions);
     fragment.appendChild(card);
   });
 
   itemList.appendChild(fragment);
+}
+
+function updateAddButtonState(isEnabled) {
+  if (!addItemButton) return;
+  addItemButton.disabled = !isEnabled;
+  addItemButton.classList.toggle('disabled', !isEnabled);
 }
 
 function createField(labelText, value, onChange, isTextarea = false) {
@@ -113,6 +140,19 @@ function updateItem(item, key, subKey, value) {
     item[key] = value;
   }
   syncEditor();
+}
+
+function deleteItem(category, itemId) {
+  if (!Array.isArray(category.items)) {
+    category.items = [];
+    return;
+  }
+  const index = category.items.findIndex((entry) => entry.id === itemId);
+  if (index === -1) return;
+  category.items.splice(index, 1);
+  syncEditor();
+  renderQuickEditor();
+  setStatus('已刪除選定項目。');
 }
 
 function initializeFilters() {
@@ -254,6 +294,10 @@ downloadButton.addEventListener('click', () => {
   }
 });
 
+if (addItemButton) {
+  addItemButton.addEventListener('click', addNewItem);
+}
+
 function triggerDownload(content, fileName) {
   const blob = new Blob([content], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
@@ -267,6 +311,54 @@ function triggerDownload(content, fileName) {
 function setStatus(message, isError = false) {
   statusMessage.textContent = message;
   statusMessage.style.color = isError ? '#dc2626' : '#16a34a';
+}
+
+function addNewItem() {
+  if (!resourcesData) {
+    setStatus('⚠️ 請先載入資料。', true);
+    return;
+  }
+
+  const section = resourcesData.sections?.find((entry) => entry.id === selectedSectionId);
+  if (!section) {
+    setStatus('⚠️ 請先選擇章節。', true);
+    return;
+  }
+
+  const category = section.categories?.find((entry) => entry.id === selectedCategoryId);
+  if (!category) {
+    setStatus('⚠️ 請先選擇分類。', true);
+    return;
+  }
+
+  if (!Array.isArray(category.items)) {
+    category.items = [];
+  }
+
+  const newItem = {
+    id: generateItemId(category),
+    name: { zh: '新資源', en: 'New Resource' },
+    description: { zh: '', en: '' },
+    tutorialUrl: '',
+    appUrl: '',
+    assistantChatbotUrl: '',
+  };
+
+  category.items.push(newItem);
+  syncEditor();
+  renderQuickEditor();
+  setStatus('✅ 已新增新項目，請更新內容。');
+}
+
+function generateItemId(category) {
+  const existingIds = new Set((category.items ?? []).map((item) => item.id));
+  const base = `item-${Date.now().toString(36)}`;
+  let candidate = base;
+  let counter = 1;
+  while (existingIds.has(candidate)) {
+    candidate = `${base}-${counter++}`;
+  }
+  return candidate;
 }
 
 fetchJson();

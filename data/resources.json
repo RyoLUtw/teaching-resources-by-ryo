@@ -25,7 +25,8 @@
                 "zh": "透過自動調整的提問與即時回饋練習新單字。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/lexichat"
+              "appUrl": "https://example.com/lexichat",
+              "assistantChatbotUrl": "https://example.com/lexichat-guide-assistant"
             },
             {
               "id": "idiom-coach",
@@ -38,7 +39,8 @@
                 "zh": "情境式對話練習，強化成語運用能力。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/idiom-coach"
+              "appUrl": "https://example.com/idiom-coach",
+              "assistantChatbotUrl": "https://example.com/idiom-coach-assistant"
             }
           ]
         },
@@ -60,7 +62,8 @@
                 "zh": "限時配對挑戰，快速連結單字與解釋。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/word-sprint"
+              "appUrl": "https://example.com/word-sprint",
+              "assistantChatbotUrl": "https://example.com/word-sprint-assistant"
             }
           ]
         },
@@ -82,7 +85,8 @@
                 "zh": "協助桌上任務紀錄分數並提供提示。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/vocab-quest"
+              "appUrl": "https://example.com/vocab-quest",
+              "assistantChatbotUrl": "https://example.com/vocab-quest-tracker-assistant"
             }
           ]
         },
@@ -104,7 +108,8 @@
                 "zh": "共用空間，師生協作打造主題字牆。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/collab-wordwall"
+              "appUrl": "https://example.com/collab-wordwall",
+              "assistantChatbotUrl": "https://example.com/collab-wordwall-assistant"
             }
           ]
         }
@@ -135,7 +140,8 @@
                 "zh": "提供反思提問並生成每週學習計畫。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/study-planner"
+              "appUrl": "https://example.com/study-planner",
+              "assistantChatbotUrl": "https://example.com/study-planner-bot-assistant"
             }
           ]
         },
@@ -157,7 +163,8 @@
                 "zh": "將習慣養成遊戲化，累積點數鼓勵持續學習。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/habit-hero"
+              "appUrl": "https://example.com/habit-hero",
+              "assistantChatbotUrl": "https://example.com/habit-hero-assistant"
             }
           ]
         },
@@ -179,7 +186,8 @@
                 "zh": "擲出虛擬骰子，引導學習策略反思。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/reflection-dice"
+              "appUrl": "https://example.com/reflection-dice",
+              "assistantChatbotUrl": "https://example.com/reflection-dice-assistant"
             }
           ]
         },
@@ -201,7 +209,8 @@
                 "zh": "含檢核點與進度視覺化的互動日誌。"
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/goal-journal"
+              "appUrl": "https://example.com/goal-journal",
+              "assistantChatbotUrl": "https://example.com/goal-setting-journal-assistant"
             }
           ]
         }

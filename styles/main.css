@@ -264,6 +264,10 @@ main {
   transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
+.modal-actions .is-hidden {
+  display: none;
+}
+
 .modal-actions button {
   background: #e2e8f0;
   color: #0f172a;
@@ -274,10 +278,39 @@ main {
   color: #0f172a;
 }
 
+#modalAssistant {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
 .modal-actions button:hover,
 .modal-actions a:hover {
   transform: translateY(-1px);
   box-shadow: 0 12px 20px rgba(15, 23, 42, 0.2);
+}
+
+.cards-grid.is-empty {
+  grid-template-columns: 1fr;
+}
+
+.placeholder-card {
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background: rgba(148, 163, 184, 0.15);
+  border: 1px dashed rgba(30, 64, 175, 0.35);
+  text-align: center;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.section-placeholder {
+  margin: 1rem 0 0;
+  padding: 1.25rem;
+  border-radius: var(--border-radius);
+  background: rgba(148, 163, 184, 0.1);
+  color: #334155;
+  font-weight: 600;
+  text-align: center;
 }
 
 @media (max-width: 960px) {

@@ -60,10 +60,23 @@ button.secondary {
   color: #0f172a;
 }
 
-button:hover,
-button:focus-visible {
+button.danger {
+  background: #dc2626;
+  color: #fff;
+}
+
+button:not(:disabled):hover,
+button:not(:disabled):focus-visible {
   transform: translateY(-1px);
   box-shadow: 0 10px 18px rgba(15, 23, 42, 0.15);
+}
+
+button:disabled,
+button.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 textarea {
@@ -100,6 +113,12 @@ section.panel {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.item-toolbar {
+  display: flex;
+  justify-content: flex-end;
   margin-bottom: 1.25rem;
 }
 
@@ -171,6 +190,12 @@ section.panel {
 .field textarea {
   min-height: 90px;
   resize: vertical;
+}
+
+.item-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
 }
 
 .status-message {
