@@ -1,0 +1,211 @@
+{
+  "sections": [
+    {
+      "id": "vocabulary-learning",
+      "title": {
+        "en": "Vocabulary Learning",
+        "zh": "字彙學習"
+      },
+      "categories": [
+        {
+          "id": "chatbots",
+          "title": {
+            "en": "Chatbots",
+            "zh": "聊天機器人"
+          },
+          "items": [
+            {
+              "id": "lexichat-guide",
+              "name": {
+                "en": "LexiChat Guide",
+                "zh": "字彙導師聊天機器人"
+              },
+              "description": {
+                "en": "Practice new vocabulary with adaptive prompts and quick feedback.",
+                "zh": "透過自動調整的提問與即時回饋練習新單字。"
+              },
+              "tutorialUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+              "appUrl": "https://example.com/lexichat"
+            },
+            {
+              "id": "idiom-coach",
+              "name": {
+                "en": "Idiom Coach",
+                "zh": "成語教練"
+              },
+              "description": {
+                "en": "Conversational bot that coaches idioms in context.",
+                "zh": "情境式對話練習，強化成語運用能力。"
+              },
+              "tutorialUrl": "影片製作中",
+              "appUrl": "https://example.com/idiom-coach"
+            }
+          ]
+        },
+        {
+          "id": "games",
+          "title": {
+            "en": "Games",
+            "zh": "遊戲"
+          },
+          "items": [
+            {
+              "id": "word-sprint",
+              "name": {
+                "en": "Word Sprint",
+                "zh": "字彙衝刺"
+              },
+              "description": {
+                "en": "Timed matching game to connect words with meanings.",
+                "zh": "限時配對挑戰，快速連結單字與解釋。"
+              },
+              "tutorialUrl": "https://www.youtube.com/embed/qz0aGYrrlhU",
+              "appUrl": "https://example.com/word-sprint"
+            }
+          ]
+        },
+        {
+          "id": "bg-companion-apps",
+          "title": {
+            "en": "Board Game Companion Apps",
+            "zh": "桌遊夥伴應用"
+          },
+          "items": [
+            {
+              "id": "vocab-quest-tracker",
+              "name": {
+                "en": "Vocab Quest Tracker",
+                "zh": "字彙任務追蹤器"
+              },
+              "description": {
+                "en": "Supports tabletop missions with scoring and hints.",
+                "zh": "協助桌上任務紀錄分數並提供提示。"
+              },
+              "tutorialUrl": "https://www.youtube.com/embed/2eebptXfEvw",
+              "appUrl": "https://example.com/vocab-quest"
+            }
+          ]
+        },
+        {
+          "id": "online-interactive-material",
+          "title": {
+            "en": "Online Interactive Material",
+            "zh": "線上互動教材"
+          },
+          "items": [
+            {
+              "id": "collab-wordwall",
+              "name": {
+                "en": "Collaborative Word Wall",
+                "zh": "協作字牆"
+              },
+              "description": {
+                "en": "Shared workspace where students build thematic vocabulary walls.",
+                "zh": "共用空間，師生協作打造主題字牆。"
+              },
+              "tutorialUrl": "影片製作中",
+              "appUrl": "https://example.com/collab-wordwall"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "self-regulated-learning",
+      "title": {
+        "en": "Self-Regulated Learning",
+        "zh": "自主學習"
+      },
+      "categories": [
+        {
+          "id": "chatbots",
+          "title": {
+            "en": "Chatbots",
+            "zh": "聊天機器人"
+          },
+          "items": [
+            {
+              "id": "study-planner-bot",
+              "name": {
+                "en": "Study Planner Bot",
+                "zh": "學習規劃機器人"
+              },
+              "description": {
+                "en": "Generates reflective prompts and weekly study plans.",
+                "zh": "提供反思提問並生成每週學習計畫。"
+              },
+              "tutorialUrl": "https://www.youtube.com/embed/ktjafK4SgWM",
+              "appUrl": "https://example.com/study-planner"
+            }
+          ]
+        },
+        {
+          "id": "games",
+          "title": {
+            "en": "Games",
+            "zh": "遊戲"
+          },
+          "items": [
+            {
+              "id": "habit-hero",
+              "name": {
+                "en": "Habit Hero",
+                "zh": "習慣英雄"
+              },
+              "description": {
+                "en": "Gamified habit tracker that rewards consistent study routines.",
+                "zh": "將習慣養成遊戲化，累積點數鼓勵持續學習。"
+              },
+              "tutorialUrl": "https://www.youtube.com/embed/JGwWNGJdvx8",
+              "appUrl": "https://example.com/habit-hero"
+            }
+          ]
+        },
+        {
+          "id": "bg-companion-apps",
+          "title": {
+            "en": "Board Game Companion Apps",
+            "zh": "桌遊夥伴應用"
+          },
+          "items": [
+            {
+              "id": "reflection-dice",
+              "name": {
+                "en": "Reflection Dice",
+                "zh": "反思骰子"
+              },
+              "description": {
+                "en": "Roll virtual dice to trigger metacognitive challenges.",
+                "zh": "擲出虛擬骰子，引導學習策略反思。"
+              },
+              "tutorialUrl": "影片製作中",
+              "appUrl": "https://example.com/reflection-dice"
+            }
+          ]
+        },
+        {
+          "id": "online-interactive-material",
+          "title": {
+            "en": "Online Interactive Material",
+            "zh": "線上互動教材"
+          },
+          "items": [
+            {
+              "id": "goal-setting-journal",
+              "name": {
+                "en": "Goal Setting Journal",
+                "zh": "目標設定日誌"
+              },
+              "description": {
+                "en": "Interactive journal with checkpoints and progress visualization.",
+                "zh": "含檢核點與進度視覺化的互動日誌。"
+              },
+              "tutorialUrl": "https://www.youtube.com/embed/lTTajzrSkCw",
+              "appUrl": "https://example.com/goal-journal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
