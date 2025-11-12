@@ -140,13 +140,6 @@ main {
   color: var(--primary-color);
 }
 
-.section .section-subtitle {
-  color: var(--text-secondary);
-  font-size: 1rem;
-  margin-top: -0.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .category {
   margin-bottom: 2rem;
 }
@@ -192,11 +185,6 @@ main {
   color: var(--text-secondary);
   font-size: 0.95rem;
   line-height: 1.5;
-}
-
-.item-card .item-subtitle {
-  font-size: 0.85rem;
-  color: #6366f1;
 }
 
 .modal-overlay {

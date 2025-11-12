@@ -6,11 +6,17 @@ const state = {
 const languageLabels = {
   zh: {
     navTitle: '資源導覽',
-    sectionSubheading: '雙語介紹',
+    loadError: '⚠️ 無法載入資源資料。請稍後再試。',
+    tutorialPlaceholder: '影片製作中',
+    modalClose: '返回',
+    modalLaunch: '立即體驗',
   },
   en: {
     navTitle: 'Navigate Resources',
-    sectionSubheading: 'Bilingual Overview',
+    loadError: '⚠️ Unable to load resources. Please try again later.',
+    tutorialPlaceholder: 'Tutorial coming soon',
+    modalClose: 'Close',
+    modalLaunch: 'Try it',
   },
 };
 
@@ -34,7 +40,8 @@ async function loadResources() {
     renderAll();
   } catch (error) {
     console.error('Unable to load resources.json', error);
-    content.innerHTML = `<p>⚠️ 無法載入資源資料。請稍後再試。</p>`;
+    state.data = null;
+    renderError();
   }
 }
 
@@ -42,6 +49,7 @@ function renderAll() {
   if (!state.data) return;
   renderSidebar();
   renderContent();
+  updateStaticTexts();
   document.documentElement.lang = state.language === 'zh' ? 'zh-Hant' : 'en';
 }
 
@@ -84,13 +92,7 @@ function renderContent() {
 
     const heading = document.createElement('h2');
     heading.textContent = section.title[state.language];
-
-    const subheading = document.createElement('p');
-    subheading.className = 'section-subtitle';
-    const otherLanguage = state.language === 'zh' ? 'en' : 'zh';
-    subheading.textContent = section.title[otherLanguage];
-
-    sectionElement.append(heading, subheading);
+    sectionElement.append(heading);
 
     section.categories.forEach((category) => {
       const categoryElement = document.createElement('article');
@@ -99,9 +101,6 @@ function renderContent() {
 
       const categoryHeading = document.createElement('h3');
       categoryHeading.textContent = category.title[state.language];
-      const categorySubheading = document.createElement('p');
-      categorySubheading.className = 'section-subtitle';
-      categorySubheading.textContent = category.title[state.language === 'zh' ? 'en' : 'zh'];
 
       const cardsGrid = document.createElement('div');
       cardsGrid.className = 'cards-grid';
@@ -111,7 +110,7 @@ function renderContent() {
         cardsGrid.appendChild(card);
       });
 
-      categoryElement.append(categoryHeading, categorySubheading, cardsGrid);
+      categoryElement.append(categoryHeading, cardsGrid);
       sectionElement.appendChild(categoryElement);
     });
 
@@ -128,14 +127,11 @@ function createItemCard(item, section, category) {
 
   const title = document.createElement('h4');
   title.textContent = item.name[state.language];
-  const subtitle = document.createElement('span');
-  subtitle.className = 'item-subtitle';
-  subtitle.textContent = item.name[state.language === 'zh' ? 'en' : 'zh'];
 
   const description = document.createElement('p');
   description.textContent = item.description[state.language];
 
-  card.append(title, subtitle, description);
+  card.append(title, description);
   return card;
 }
 
@@ -145,7 +141,7 @@ function openModal(item, section, category) {
   modalDescription.textContent = item.description[state.language];
 
   modalTutorial.innerHTML = '';
-  if (item.tutorialUrl && item.tutorialUrl !== '影片製作中') {
+  if (item.tutorialUrl) {
     const iframe = document.createElement('iframe');
     iframe.src = item.tutorialUrl;
     iframe.title = `${item.name[state.language]} tutorial`;
@@ -155,7 +151,7 @@ function openModal(item, section, category) {
   } else {
     const placeholder = document.createElement('p');
     placeholder.className = 'tutorial-placeholder';
-    placeholder.textContent = '影片製作中';
+    placeholder.textContent = languageLabels[state.language].tutorialPlaceholder;
     modalTutorial.appendChild(placeholder);
   }
 
@@ -171,6 +167,23 @@ function closeModal() {
   modalTutorial.innerHTML = '';
 }
 
+function updateStaticTexts() {
+  const labels = languageLabels[state.language];
+  sidebar.querySelector('h2').textContent = labels.navTitle;
+  modalClose.textContent = labels.modalClose;
+  modalLaunch.textContent = labels.modalLaunch;
+}
+
+function renderError() {
+  const labels = languageLabels[state.language];
+  sidebar.querySelector('h2').textContent = labels.navTitle;
+  navLinks.innerHTML = '';
+  content.innerHTML = `<p>${labels.loadError}</p>`;
+  document.documentElement.lang = state.language === 'zh' ? 'zh-Hant' : 'en';
+  modalClose.textContent = labels.modalClose;
+  modalLaunch.textContent = labels.modalLaunch;
+}
+
 sidebarToggle.addEventListener('click', () => {
   sidebar.classList.toggle('collapsed');
 });
@@ -181,7 +194,11 @@ languageButtons.forEach((button) => {
     if (state.language === chosenLang) return;
     state.language = chosenLang;
     languageButtons.forEach((btn) => btn.classList.toggle('active', btn === button));
-    renderAll();
+    if (state.data) {
+      renderAll();
+    } else {
+      renderError();
+    }
   });
 });
 

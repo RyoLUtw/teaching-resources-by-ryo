@@ -24,7 +24,7 @@
                 "en": "Practice new vocabulary with adaptive prompts and quick feedback.",
                 "zh": "透過自動調整的提問與即時回饋練習新單字。"
               },
-              "tutorialUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/lexichat"
             },
             {
@@ -37,7 +37,7 @@
                 "en": "Conversational bot that coaches idioms in context.",
                 "zh": "情境式對話練習，強化成語運用能力。"
               },
-              "tutorialUrl": "影片製作中",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/idiom-coach"
             }
           ]
@@ -59,7 +59,7 @@
                 "en": "Timed matching game to connect words with meanings.",
                 "zh": "限時配對挑戰，快速連結單字與解釋。"
               },
-              "tutorialUrl": "https://www.youtube.com/embed/qz0aGYrrlhU",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/word-sprint"
             }
           ]
@@ -81,7 +81,7 @@
                 "en": "Supports tabletop missions with scoring and hints.",
                 "zh": "協助桌上任務紀錄分數並提供提示。"
               },
-              "tutorialUrl": "https://www.youtube.com/embed/2eebptXfEvw",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/vocab-quest"
             }
           ]
@@ -103,7 +103,7 @@
                 "en": "Shared workspace where students build thematic vocabulary walls.",
                 "zh": "共用空間，師生協作打造主題字牆。"
               },
-              "tutorialUrl": "影片製作中",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/collab-wordwall"
             }
           ]
@@ -134,7 +134,7 @@
                 "en": "Generates reflective prompts and weekly study plans.",
                 "zh": "提供反思提問並生成每週學習計畫。"
               },
-              "tutorialUrl": "https://www.youtube.com/embed/ktjafK4SgWM",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/study-planner"
             }
           ]
@@ -156,7 +156,7 @@
                 "en": "Gamified habit tracker that rewards consistent study routines.",
                 "zh": "將習慣養成遊戲化，累積點數鼓勵持續學習。"
               },
-              "tutorialUrl": "https://www.youtube.com/embed/JGwWNGJdvx8",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/habit-hero"
             }
           ]
@@ -178,7 +178,7 @@
                 "en": "Roll virtual dice to trigger metacognitive challenges.",
                 "zh": "擲出虛擬骰子，引導學習策略反思。"
               },
-              "tutorialUrl": "影片製作中",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/reflection-dice"
             }
           ]
@@ -200,7 +200,7 @@
                 "en": "Interactive journal with checkpoints and progress visualization.",
                 "zh": "含檢核點與進度視覺化的互動日誌。"
               },
-              "tutorialUrl": "https://www.youtube.com/embed/lTTajzrSkCw",
+              "tutorialUrl": "",
               "appUrl": "https://example.com/goal-journal"
             }
           ]

@@ -96,6 +96,31 @@ section.panel {
   gap: 1.5rem;
 }
 
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.filter-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.filter-controls select {
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+  min-width: 200px;
+}
+
 .item-card {
   border: 1px solid rgba(148, 163, 184, 0.25);
   border-radius: 18px;
