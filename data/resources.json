@@ -17,30 +17,38 @@
             {
               "id": "lexichat-guide",
               "name": {
-                "en": "LexiChat Guide",
-                "zh": "字彙導師聊天機器人"
+                "en": "Vocabulary Helper",
+                "zh": "單字小幫手"
               },
               "description": {
-                "en": "Practice new vocabulary with adaptive prompts and quick feedback.",
-                "zh": "透過自動調整的提問與即時回饋練習新單字。"
+                "en": "Starting from a personalized word set, the system guides learners through three stages—initial exposure, reading practice, and output practice—cultivating genuine vocabulary mastery step by step.",
+                "zh": "從使用者自訂的單字集出發，系統引導學習者經歷三個階段：初始接觸、閱讀練習與輸出練習，在循序體驗中培養真正的字彙運用力。"
               },
               "tutorialUrl": "",
+<<<<<<< Updated upstream
               "appUrl": "https://example.com/lexichat",
               "assistantChatbotUrl": "https://example.com/lexichat-guide-assistant"
+=======
+              "appUrl": "https://chatgpt.com/g/g-KdZt18tsj-dian-di-jiu-ying-wen-dan-zi-xiao-bang-shou"
+>>>>>>> Stashed changes
             },
             {
               "id": "idiom-coach",
               "name": {
-                "en": "Idiom Coach",
-                "zh": "成語教練"
+                "en": "Vocabulary Packager",
+                "zh": "單字打包機"
               },
               "description": {
-                "en": "Conversational bot that coaches idioms in context.",
-                "zh": "情境式對話練習，強化成語運用能力。"
+                "en": "Converts and packages the user-selected vocabulary set into a ready-to-use JSON file for the word review game, allowing the game to instantly access and use the chosen vocabulary for practice.",
+                "zh": "將使用者挑選的單字集自動轉換並封裝成可直接載入至單字複習遊戲的 JSON 檔案，讓遊戲能立即使用這些詞彙資料進行練習。"
               },
               "tutorialUrl": "",
+<<<<<<< Updated upstream
               "appUrl": "https://example.com/idiom-coach",
               "assistantChatbotUrl": "https://example.com/idiom-coach-assistant"
+=======
+              "appUrl": "https://chatgpt.com/g/g-6911c0976bf08191be8ef71e6eb3cfba-dian-di-jiu-ying-wen-dan-zi-da-bao-ji"
+>>>>>>> Stashed changes
             }
           ]
         },
@@ -54,16 +62,20 @@
             {
               "id": "word-sprint",
               "name": {
-                "en": "Word Sprint",
-                "zh": "字彙衝刺"
+                "en": "So Clover",
+                "zh": "草聰明"
               },
               "description": {
-                "en": "Timed matching game to connect words with meanings.",
-                "zh": "限時配對挑戰，快速連結單字與解釋。"
+                "en": "Each player writes clues linking four pairs of keywords, then the team works together to reconstruct the original arrangement—high-fun, high-teamplay.",
+                "zh": "每位玩家寫出四對關鍵詞的「共同特徵」，然後全隊合作猜回原來的排列，趣味十足。"
               },
               "tutorialUrl": "",
+<<<<<<< Updated upstream
               "appUrl": "https://example.com/word-sprint",
               "assistantChatbotUrl": "https://example.com/word-sprint-assistant"
+=======
+              "appUrl": "https://ryolutw.github.io/so-clover-ver2/"
+>>>>>>> Stashed changes
             }
           ]
         },
@@ -71,7 +83,7 @@
           "id": "bg-companion-apps",
           "title": {
             "en": "Board Game Companion Apps",
-            "zh": "桌遊夥伴應用"
+            "zh": "桌遊搭配APP"
           },
           "items": [
             {
@@ -172,7 +184,7 @@
           "id": "bg-companion-apps",
           "title": {
             "en": "Board Game Companion Apps",
-            "zh": "桌遊夥伴應用"
+            "zh": "桌遊搭配APP"
           },
           "items": [
             {
