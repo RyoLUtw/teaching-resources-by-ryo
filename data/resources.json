@@ -130,8 +130,8 @@
                 "en": "AI Assisted Learning Customization"
               },
               "description": {
-                "zh": "",
-                "en": ""
+                "zh": "協助學生撰寫能客製化AI的指令，讓AI在生成學習內容時融入學生的興趣元素，提升專注度與學習動機。",
+                "en": "Helps students craft customized AI prompts that integrate their personal interests into learning content, enhancing engagement and motivation."
               },
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/AI-customization-for-learning/",
