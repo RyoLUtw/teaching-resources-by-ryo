@@ -25,7 +25,7 @@
                 "zh": "從使用者自訂的單字集出發，系統引導學習者經歷三個階段：初始接觸、閱讀練習與輸出練習，在循序體驗中培養真正的字彙運用力。"
               },
               "tutorialUrl": "",
-              "assistantChatbotUrl": "https://example.com/lexichat-guide-assistant",
+              "assistantChatbotUrl": "",
               "appUrl": "https://chatgpt.com/g/g-KdZt18tsj-dian-di-jiu-ying-wen-dan-zi-xiao-bang-shou"
             },
             {
@@ -40,7 +40,7 @@
               },
               "tutorialUrl": "",
               "appUrl": "https://chatgpt.com/g/g-6911c0976bf08191be8ef71e6eb3cfba-dian-di-jiu-ying-wen-dan-zi-da-bao-ji",
-              "assistantChatbotUrl": "https://example.com/idiom-coach-assistant"
+              "assistantChatbotUrl": ""
             }
           ]
         },
@@ -63,7 +63,7 @@
               },
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/so-clover-ver2/",
-              "assistantChatbotUrl": "https://example.com/word-sprint-assistant"
+              "assistantChatbotUrl": ""
             }
           ]
         },
@@ -73,22 +73,7 @@
             "en": "Board Game Companion Apps",
             "zh": "桌遊搭配APP"
           },
-          "items": [
-            {
-              "id": "vocab-quest-tracker",
-              "name": {
-                "en": "Vocab Quest Tracker",
-                "zh": "字彙任務追蹤器"
-              },
-              "description": {
-                "en": "Supports tabletop missions with scoring and hints.",
-                "zh": "協助桌上任務紀錄分數並提供提示。"
-              },
-              "tutorialUrl": "",
-              "appUrl": "https://example.com/vocab-quest",
-              "assistantChatbotUrl": "https://example.com/vocab-quest-tracker-assistant"
-            }
-          ]
+          "items": []
         },
         {
           "id": "online-interactive-material",
@@ -96,22 +81,7 @@
             "en": "Online Interactive Material",
             "zh": "線上互動教材"
           },
-          "items": [
-            {
-              "id": "collab-wordwall",
-              "name": {
-                "en": "Collaborative Word Wall",
-                "zh": "協作字牆"
-              },
-              "description": {
-                "en": "Shared workspace where students build thematic vocabulary walls.",
-                "zh": "共用空間，師生協作打造主題字牆。"
-              },
-              "tutorialUrl": "",
-              "appUrl": "https://example.com/collab-wordwall",
-              "assistantChatbotUrl": "https://example.com/collab-wordwall-assistant"
-            }
-          ]
+          "items": []
         }
       ]
     },
@@ -128,22 +98,7 @@
             "en": "Chatbots",
             "zh": "聊天機器人"
           },
-          "items": [
-            {
-              "id": "study-planner-bot",
-              "name": {
-                "en": "Study Planner Bot",
-                "zh": "學習規劃機器人"
-              },
-              "description": {
-                "en": "Generates reflective prompts and weekly study plans.",
-                "zh": "提供反思提問並生成每週學習計畫。"
-              },
-              "tutorialUrl": "",
-              "appUrl": "https://example.com/study-planner",
-              "assistantChatbotUrl": "https://example.com/study-planner-bot-assistant"
-            }
-          ]
+          "items": []
         },
         {
           "id": "games",
@@ -151,22 +106,7 @@
             "en": "Games",
             "zh": "遊戲"
           },
-          "items": [
-            {
-              "id": "habit-hero",
-              "name": {
-                "en": "Habit Hero",
-                "zh": "習慣英雄"
-              },
-              "description": {
-                "en": "Gamified habit tracker that rewards consistent study routines.",
-                "zh": "將習慣養成遊戲化，累積點數鼓勵持續學習。"
-              },
-              "tutorialUrl": "",
-              "appUrl": "https://example.com/habit-hero",
-              "assistantChatbotUrl": "https://example.com/habit-hero-assistant"
-            }
-          ]
+          "items": []
         },
         {
           "id": "bg-companion-apps",
@@ -174,22 +114,7 @@
             "en": "Board Game Companion Apps",
             "zh": "桌遊搭配APP"
           },
-          "items": [
-            {
-              "id": "reflection-dice",
-              "name": {
-                "en": "Reflection Dice",
-                "zh": "反思骰子"
-              },
-              "description": {
-                "en": "Roll virtual dice to trigger metacognitive challenges.",
-                "zh": "擲出虛擬骰子，引導學習策略反思。"
-              },
-              "tutorialUrl": "",
-              "appUrl": "https://example.com/reflection-dice",
-              "assistantChatbotUrl": "https://example.com/reflection-dice-assistant"
-            }
-          ]
+          "items": []
         },
         {
           "id": "online-interactive-material",
@@ -199,18 +124,32 @@
           },
           "items": [
             {
-              "id": "goal-setting-journal",
+              "id": "item-mhvqya4p",
               "name": {
-                "en": "Goal Setting Journal",
-                "zh": "目標設定日誌"
+                "zh": "AI輔助學習客製化",
+                "en": "AI Assisted Learning Customization"
               },
               "description": {
-                "en": "Interactive journal with checkpoints and progress visualization.",
-                "zh": "含檢核點與進度視覺化的互動日誌。"
+                "zh": "",
+                "en": ""
               },
               "tutorialUrl": "",
-              "appUrl": "https://example.com/goal-journal",
-              "assistantChatbotUrl": "https://example.com/goal-setting-journal-assistant"
+              "appUrl": "https://ryolutw.github.io/AI-customization-for-learning/",
+              "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-mhvr0xdd",
+              "name": {
+                "zh": "複習清單產生器",
+                "en": "Review List Generator"
+              },
+              "description": {
+                "zh": "列出今天應該複習過去哪些日期所學過的單字",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/Review-Date-Calculator/",
+              "assistantChatbotUrl": ""
             }
           ]
         }
