@@ -7,6 +7,19 @@ const statusMessage = document.getElementById('editorStatus');
 const sectionFilter = document.getElementById('sectionFilter');
 const categoryFilter = document.getElementById('categoryFilter');
 const addItemButton = document.getElementById('addItem');
+const sectionOrderList = document.getElementById('sectionOrderList');
+const categoryOrderList = document.getElementById('categoryOrderList');
+const addModal = document.getElementById('addModal');
+const addModalTitle = document.getElementById('addModalTitle');
+const addModalLabel = document.getElementById('addModalLabel');
+const addModalInput = document.getElementById('addModalInput');
+const confirmAddButton = document.getElementById('confirmAdd');
+const cancelAddButton = document.getElementById('cancelAdd');
+
+const ADD_SECTION_VALUE = '__add_section__';
+const ADD_CATEGORY_VALUE = '__add_category__';
+
+let addContext = null;
 
 let resourcesData = null;
 let selectedSectionId = null;
@@ -35,6 +48,7 @@ function setData(data) {
   syncEditor();
   initializeFilters();
   renderQuickEditor();
+  renderOrderingLists();
 }
 
 function syncEditor() {
@@ -163,19 +177,28 @@ function initializeFilters() {
     categoryFilter.disabled = true;
     selectedSectionId = null;
     selectedCategoryId = null;
+    renderOrderingLists();
     return;
   }
 
   const sections = resourcesData.sections;
   sectionFilter.innerHTML = '';
+  const sectionFragment = document.createDocumentFragment();
   sections.forEach((section) => {
     const option = document.createElement('option');
     option.value = section.id;
     option.textContent = `${section.title.zh} / ${section.title.en}`;
-    sectionFilter.appendChild(option);
+    sectionFragment.appendChild(option);
   });
 
-  sectionFilter.disabled = sections.length === 0;
+  const addSectionOption = document.createElement('option');
+  addSectionOption.value = ADD_SECTION_VALUE;
+  addSectionOption.textContent = '新增 (Add new)';
+  sectionFragment.appendChild(addSectionOption);
+
+  sectionFilter.appendChild(sectionFragment);
+
+  sectionFilter.disabled = false;
 
   if (!selectedSectionId || !sections.some((section) => section.id === selectedSectionId)) {
     selectedSectionId = sections[0]?.id ?? null;
@@ -197,6 +220,7 @@ function populateCategoryOptions() {
     categoryFilter.innerHTML = '';
     categoryFilter.disabled = true;
     selectedCategoryId = null;
+    renderOrderingLists();
     return;
   }
 
@@ -205,18 +229,27 @@ function populateCategoryOptions() {
     categoryFilter.innerHTML = '';
     categoryFilter.disabled = true;
     selectedCategoryId = null;
+    renderOrderingLists();
     return;
   }
 
   categoryFilter.innerHTML = '';
+  const categoryFragment = document.createDocumentFragment();
   section.categories.forEach((category) => {
     const option = document.createElement('option');
     option.value = category.id;
     option.textContent = `${category.title.zh} / ${category.title.en}`;
-    categoryFilter.appendChild(option);
+    categoryFragment.appendChild(option);
   });
 
-  categoryFilter.disabled = section.categories.length === 0;
+  const addCategoryOption = document.createElement('option');
+  addCategoryOption.value = ADD_CATEGORY_VALUE;
+  addCategoryOption.textContent = '新增 (Add new)';
+  categoryFragment.appendChild(addCategoryOption);
+
+  categoryFilter.appendChild(categoryFragment);
+
+  categoryFilter.disabled = section.categories.length === 0 && !selectedSectionId;
 
   if (!selectedCategoryId || !section.categories.some((category) => category.id === selectedCategoryId)) {
     selectedCategoryId = section.categories[0]?.id ?? null;
@@ -225,6 +258,8 @@ function populateCategoryOptions() {
   if (selectedCategoryId) {
     categoryFilter.value = selectedCategoryId;
   }
+
+  renderOrderingLists();
 }
 
 jsonEditor.addEventListener('change', () => {
@@ -233,6 +268,7 @@ jsonEditor.addEventListener('change', () => {
     resourcesData = parsed;
     initializeFilters();
     renderQuickEditor();
+    renderOrderingLists();
     setStatus('已從手動編輯更新表單。');
   } catch (error) {
     setStatus('⚠️ JSON 格式錯誤，請檢查後再試。', true);
@@ -240,14 +276,28 @@ jsonEditor.addEventListener('change', () => {
 });
 
 sectionFilter.addEventListener('change', () => {
+  if (sectionFilter.value === ADD_SECTION_VALUE) {
+    sectionFilter.value = selectedSectionId ?? '';
+    openAddModal('section');
+    return;
+  }
+
   selectedSectionId = sectionFilter.value;
   populateCategoryOptions();
   renderQuickEditor();
+  renderOrderingLists();
 });
 
 categoryFilter.addEventListener('change', () => {
+  if (categoryFilter.value === ADD_CATEGORY_VALUE) {
+    categoryFilter.value = selectedCategoryId ?? '';
+    openAddModal('category');
+    return;
+  }
+
   selectedCategoryId = categoryFilter.value;
   renderQuickEditor();
+  renderOrderingLists();
 });
 
 reloadButton.addEventListener('click', () => {
@@ -360,5 +410,219 @@ function generateItemId(category) {
   }
   return candidate;
 }
+
+function generateSectionId() {
+  const base = `section-${Date.now().toString(36)}`;
+  const existingIds = new Set((resourcesData?.sections ?? []).map((section) => section.id));
+  let candidate = base;
+  let counter = 1;
+  while (existingIds.has(candidate)) {
+    candidate = `${base}-${counter++}`;
+  }
+  return candidate;
+}
+
+function generateCategoryId(section) {
+  const base = `category-${Date.now().toString(36)}`;
+  const existingIds = new Set((section.categories ?? []).map((category) => category.id));
+  let candidate = base;
+  let counter = 1;
+  while (existingIds.has(candidate)) {
+    candidate = `${base}-${counter++}`;
+  }
+  return candidate;
+}
+
+function openAddModal(type) {
+  addContext = type;
+  addModalTitle.textContent = type === 'section' ? '新增章節' : '新增分類';
+  addModalLabel.textContent = type === 'section' ? '章節名稱' : '分類名稱';
+  addModalInput.value = '';
+  addModal.classList.remove('hidden');
+  addModalInput.focus();
+}
+
+function closeAddModal() {
+  addContext = null;
+  addModal.classList.add('hidden');
+}
+
+confirmAddButton.addEventListener('click', () => {
+  const name = addModalInput.value.trim();
+  if (!name) {
+    setStatus('⚠️ 請輸入名稱。', true);
+    return;
+  }
+
+  if (!resourcesData) {
+    resourcesData = { sections: [] };
+  }
+
+  if (addContext === 'section') {
+    const newSection = {
+      id: generateSectionId(),
+      title: { zh: name, en: name },
+      categories: [],
+    };
+    resourcesData.sections = resourcesData.sections ?? [];
+    resourcesData.sections.push(newSection);
+    selectedSectionId = newSection.id;
+    selectedCategoryId = null;
+    setStatus('✅ 已新增章節。');
+  } else if (addContext === 'category') {
+    const section = resourcesData.sections?.find((entry) => entry.id === selectedSectionId);
+    if (!section) {
+      setStatus('⚠️ 請先選擇章節。', true);
+      closeAddModal();
+      return;
+    }
+    section.categories = section.categories ?? [];
+    const newCategory = {
+      id: generateCategoryId(section),
+      title: { zh: name, en: name },
+      items: [],
+    };
+    section.categories.push(newCategory);
+    selectedCategoryId = newCategory.id;
+    setStatus('✅ 已新增分類。');
+  }
+
+  syncEditor();
+  initializeFilters();
+  renderQuickEditor();
+  renderOrderingLists();
+  closeAddModal();
+});
+
+cancelAddButton.addEventListener('click', () => {
+  closeAddModal();
+});
+
+function renderSectionOrderList() {
+  if (!sectionOrderList) return;
+  sectionOrderList.innerHTML = '';
+
+  if (!resourcesData?.sections?.length) {
+    sectionOrderList.innerHTML = '<li class="empty-message">No sections yet</li>';
+    return;
+  }
+
+  resourcesData.sections.forEach((section) => {
+    const item = createDraggableItem(`${section.title.zh} / ${section.title.en}`, section.id);
+    sectionOrderList.appendChild(item);
+  });
+}
+
+function renderCategoryOrderList() {
+  if (!categoryOrderList) return;
+  categoryOrderList.innerHTML = '';
+
+  const section = resourcesData?.sections?.find((entry) => entry.id === selectedSectionId);
+  if (!section) {
+    categoryOrderList.innerHTML = '<li class="empty-message">Select a section to reorder categories</li>';
+    return;
+  }
+
+  if (!section.categories?.length) {
+    categoryOrderList.innerHTML = '<li class="empty-message">No categories yet</li>';
+    return;
+  }
+
+  section.categories.forEach((category) => {
+    const item = createDraggableItem(`${category.title.zh} / ${category.title.en}`, category.id);
+    categoryOrderList.appendChild(item);
+  });
+}
+
+function createDraggableItem(label, id) {
+  const item = document.createElement('li');
+  item.className = 'draggable-item';
+  item.draggable = true;
+  item.dataset.id = id;
+
+  const handle = document.createElement('span');
+  handle.className = 'drag-handle';
+  handle.textContent = '☰';
+
+  const text = document.createElement('span');
+  text.textContent = label;
+
+  item.append(handle, text);
+  return item;
+}
+
+function enableDragSorting(listElement, type) {
+  if (!listElement) return;
+
+  listElement.addEventListener('dragstart', (event) => {
+    if (!(event.target instanceof HTMLElement) || !event.target.classList.contains('draggable-item')) return;
+    event.target.classList.add('dragging');
+    event.dataTransfer?.setData('text/plain', event.target.dataset.id ?? '');
+  });
+
+  listElement.addEventListener('dragend', (event) => {
+    if (!(event.target instanceof HTMLElement) || !event.target.classList.contains('draggable-item')) return;
+    event.target.classList.remove('dragging');
+    persistOrder(listElement, type);
+  });
+
+  listElement.addEventListener('dragover', (event) => {
+    event.preventDefault();
+    const dragging = listElement.querySelector('.dragging');
+    if (!dragging) return;
+
+    const afterElement = getDragAfterElement(listElement, event.clientY);
+    if (!afterElement) {
+      listElement.appendChild(dragging);
+    } else {
+      listElement.insertBefore(dragging, afterElement);
+    }
+  });
+}
+
+function getDragAfterElement(listElement, y) {
+  const items = [...listElement.querySelectorAll('.draggable-item:not(.dragging)')];
+  return items.reduce(
+    (closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset, element: child };
+      }
+      return closest;
+    },
+    { offset: Number.NEGATIVE_INFINITY, element: null }
+  ).element;
+}
+
+function persistOrder(listElement, type) {
+  const ids = [...listElement.querySelectorAll('.draggable-item[data-id]')].map((item) => item.dataset.id);
+  if (!resourcesData) return;
+
+  if (type === 'section') {
+    resourcesData.sections.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id));
+    syncEditor();
+    initializeFilters();
+    renderQuickEditor();
+    setStatus('✅ 已更新章節順序。');
+  } else if (type === 'category') {
+    const section = resourcesData.sections.find((entry) => entry.id === selectedSectionId);
+    if (!section) return;
+    section.categories.sort((a, b) => ids.indexOf(a.id) - ids.indexOf(b.id));
+    syncEditor();
+    populateCategoryOptions();
+    renderQuickEditor();
+    setStatus('✅ 已更新分類順序。');
+  }
+  renderOrderingLists();
+}
+
+function renderOrderingLists() {
+  renderSectionOrderList();
+  renderCategoryOrderList();
+}
+
+enableDragSorting(sectionOrderList, 'section');
+enableDragSorting(categoryOrderList, 'category');
 
 fetchJson();

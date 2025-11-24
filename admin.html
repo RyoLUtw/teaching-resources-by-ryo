@@ -39,11 +39,41 @@
             <select id="categoryFilter" disabled></select>
           </label>
         </div>
+        <div class="reorder-panel">
+          <div class="reorder-group">
+            <div class="reorder-header">
+              <h3>Section Order</h3>
+              <p>Drag to reorder sections.</p>
+            </div>
+            <ul id="sectionOrderList" class="draggable-list" aria-label="Section order"></ul>
+          </div>
+          <div class="reorder-group">
+            <div class="reorder-header">
+              <h3>Category Order</h3>
+              <p>Drag to reorder categories in the selected section.</p>
+            </div>
+            <ul id="categoryOrderList" class="draggable-list" aria-label="Category order"></ul>
+          </div>
+        </div>
         <div class="item-toolbar">
           <button type="button" class="primary" id="addItem">Add Item</button>
         </div>
         <div class="item-list" id="itemList"></div>
       </section>
+    </div>
+
+    <div class="modal-overlay hidden" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addModalTitle">
+      <div class="modal">
+        <h3 id="addModalTitle"></h3>
+        <label class="field">
+          <span id="addModalLabel"></span>
+          <input type="text" id="addModalInput" />
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="secondary" id="cancelAdd">Cancel</button>
+          <button type="button" class="primary" id="confirmAdd">Add</button>
+        </div>
+      </div>
     </div>
 
     <script src="scripts/admin.js" type="module"></script>
