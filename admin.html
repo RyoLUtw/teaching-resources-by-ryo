@@ -29,56 +29,59 @@
       <section class="panel">
         <h2>Quick Edit Form</h2>
         <p>Edit entries directly. Changes are reflected in the JSON editor automatically.</p>
-        <div class="filter-controls">
-          <label>
-            Section
-            <select id="sectionFilter"></select>
-          </label>
-          <label>
-            Category
-            <select id="categoryFilter" disabled></select>
-          </label>
-        </div>
-        <div class="reorder-panel">
+        <div class="reorder-panel orders-grid">
           <div class="reorder-group">
-            <div class="reorder-header">
-              <h3>Section Order</h3>
-              <p>Drag to reorder sections.</p>
+            <div class="reorder-header with-action">
+              <div>
+                <h3>Section Order</h3>
+                <p>Drag to reorder sections and select one to manage its categories.</p>
+              </div>
+              <button type="button" class="primary" id="addSectionButton">Add new section</button>
             </div>
-            <ul id="sectionOrderList" class="draggable-list" aria-label="Section order"></ul>
+            <ul id="sectionOrderList" class="draggable-list selectable" aria-label="Section order"></ul>
           </div>
           <div class="reorder-group">
-            <div class="reorder-header">
-              <h3>Category Order</h3>
-              <p>Drag to reorder categories in the selected section.</p>
+            <div class="reorder-header with-action">
+              <div>
+                <h3>Category Order</h3>
+                <p>Drag to reorder categories in the selected section.</p>
+              </div>
+              <button type="button" class="primary" id="addCategoryButton" disabled>Add new category</button>
             </div>
-            <ul id="categoryOrderList" class="draggable-list" aria-label="Category order"></ul>
+            <ul id="categoryOrderList" class="draggable-list selectable" aria-label="Category order"></ul>
+          </div>
+          <div class="reorder-group">
+            <div class="reorder-header with-action">
+              <div>
+                <h3>Item Order</h3>
+                <p>Drag to reorder items in the selected category.</p>
+              </div>
+              <button type="button" class="primary" id="addItemButton" disabled>Add new item</button>
+            </div>
+            <ul id="itemOrderList" class="draggable-list selectable" aria-label="Item order"></ul>
           </div>
         </div>
-        <div class="item-toolbar">
-          <button type="button" class="primary" id="addItem">Add Item</button>
-        </div>
-        <div class="item-list" id="itemList"></div>
       </section>
     </div>
 
-    <div class="modal-overlay hidden" id="addModal" role="dialog" aria-modal="true" aria-labelledby="addModalTitle">
+    <div class="modal-overlay hidden" id="entityModal" role="dialog" aria-modal="true" aria-labelledby="entityModalTitle">
       <div class="modal">
-        <h3 id="addModalTitle"></h3>
-        <label class="field">
-          <span id="addModalLabel"></span>
-          <input type="text" id="addModalInput" />
-        </label>
-        <div class="field-group hidden" id="addModalCategoryFields">
-          <div class="field-group__header">
-            <span>新增分類 (Add categories)</span>
-            <button type="button" class="tertiary" id="addCategoryField">+ Add another</button>
-          </div>
-          <div class="field-group__list" id="categoryFieldList"></div>
-        </div>
+        <h3 id="entityModalTitle"></h3>
+        <div class="modal-body" id="entityModalBody"></div>
         <div class="modal-actions">
-          <button type="button" class="secondary" id="cancelAdd">Cancel</button>
-          <button type="button" class="primary" id="confirmAdd">Add</button>
+          <button type="button" class="secondary" id="cancelEntity">Cancel</button>
+          <button type="button" class="primary" id="confirmEntity">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay hidden" id="itemModal" role="dialog" aria-modal="true" aria-labelledby="itemModalTitle">
+      <div class="modal wide">
+        <h3 id="itemModalTitle"></h3>
+        <div class="modal-body" id="itemModalBody"></div>
+        <div class="modal-actions">
+          <button type="button" class="secondary" id="cancelItem">Cancel</button>
+          <button type="button" class="primary" id="confirmItem">Save</button>
         </div>
       </div>
     </div>
