@@ -13,6 +13,9 @@ const addModal = document.getElementById('addModal');
 const addModalTitle = document.getElementById('addModalTitle');
 const addModalLabel = document.getElementById('addModalLabel');
 const addModalInput = document.getElementById('addModalInput');
+const addModalCategoryFields = document.getElementById('addModalCategoryFields');
+const categoryFieldList = document.getElementById('categoryFieldList');
+const addCategoryFieldButton = document.getElementById('addCategoryField');
 const confirmAddButton = document.getElementById('confirmAdd');
 const cancelAddButton = document.getElementById('cancelAdd');
 
@@ -300,6 +303,12 @@ categoryFilter.addEventListener('change', () => {
   renderOrderingLists();
 });
 
+if (addCategoryFieldButton) {
+  addCategoryFieldButton.addEventListener('click', () => {
+    addCategoryFieldRow();
+  });
+}
+
 reloadButton.addEventListener('click', () => {
   fetchJson();
 });
@@ -433,11 +442,45 @@ function generateCategoryId(section) {
   return candidate;
 }
 
+function addCategoryFieldRow(value = '') {
+  if (!categoryFieldList) return;
+  const row = document.createElement('div');
+  row.className = 'category-field-row';
+
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.placeholder = 'Category name';
+  input.value = value;
+
+  const removeButton = document.createElement('button');
+  removeButton.type = 'button';
+  removeButton.className = 'tertiary';
+  removeButton.textContent = 'Remove';
+  removeButton.addEventListener('click', () => {
+    row.remove();
+  });
+
+  row.append(input, removeButton);
+  categoryFieldList.appendChild(row);
+}
+
+function resetCategoryFieldList() {
+  if (!categoryFieldList) return;
+  categoryFieldList.innerHTML = '';
+  addCategoryFieldRow();
+}
+
 function openAddModal(type) {
   addContext = type;
   addModalTitle.textContent = type === 'section' ? '新增章節' : '新增分類';
   addModalLabel.textContent = type === 'section' ? '章節名稱' : '分類名稱';
   addModalInput.value = '';
+  if (addModalCategoryFields) {
+    addModalCategoryFields.classList.toggle('hidden', type !== 'section');
+  }
+  if (type === 'section') {
+    resetCategoryFieldList();
+  }
   addModal.classList.remove('hidden');
   addModalInput.focus();
 }
@@ -459,15 +502,29 @@ confirmAddButton.addEventListener('click', () => {
   }
 
   if (addContext === 'section') {
+    const categoryNames = categoryFieldList
+      ? [...categoryFieldList.querySelectorAll('input')]
+          .map((input) => input.value.trim())
+          .filter(Boolean)
+      : [];
+
     const newSection = {
       id: generateSectionId(),
       title: { zh: name, en: name },
       categories: [],
     };
+    categoryNames.forEach((categoryName) => {
+      const newCategory = {
+        id: generateCategoryId(newSection),
+        title: { zh: categoryName, en: categoryName },
+        items: [],
+      };
+      newSection.categories.push(newCategory);
+    });
     resourcesData.sections = resourcesData.sections ?? [];
     resourcesData.sections.push(newSection);
     selectedSectionId = newSection.id;
-    selectedCategoryId = null;
+    selectedCategoryId = newSection.categories[0]?.id ?? null;
     setStatus('✅ 已新增章節。');
   } else if (addContext === 'category') {
     const section = resourcesData.sections?.find((entry) => entry.id === selectedSectionId);

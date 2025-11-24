@@ -308,6 +308,55 @@ section.panel {
   gap: 1rem;
 }
 
+.field-group {
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  border-radius: 14px;
+  padding: 0.75rem;
+  background: #f8fafc;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.field-group.hidden {
+  display: none;
+}
+
+.field-group__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.field-group__list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.category-field-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.category-field-row input {
+  width: 100%;
+}
+
+.tertiary {
+  border: none;
+  background: none;
+  color: #2563eb;
+  font-weight: 600;
+  padding: 0.35rem 0.5rem;
+}
+
+.tertiary:hover {
+  text-decoration: underline;
+}
+
 .modal-actions {
   display: flex;
   justify-content: flex-end;
