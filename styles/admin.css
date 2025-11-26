@@ -109,35 +109,121 @@ section.panel {
   gap: 1.5rem;
 }
 
-.filter-controls {
-  display: flex;
-  flex-wrap: wrap;
+.reorder-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
-.item-toolbar {
+.reorder-group {
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 16px;
+  padding: 1rem;
+  background: #f8fafc;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.orders-grid .reorder-group {
+  min-height: 320px;
+}
+
+.reorder-header {
   display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1.25rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
 }
 
-.filter-controls label {
+.reorder-header.with-action h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #0f172a;
+}
+
+.reorder-header.with-action p {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.reorder-header.with-action button {
+  white-space: nowrap;
+}
+
+.draggable-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  font-weight: 600;
-  color: #334155;
+  gap: 0.6rem;
 }
 
-.filter-controls select {
+.draggable-item.order-card {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
   border-radius: 12px;
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  padding: 0.55rem 0.75rem;
-  font-size: 0.95rem;
-  font-family: inherit;
   background: #fff;
-  min-width: 200px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  cursor: grab;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.08);
+}
+
+.draggable-item.order-card.selected {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.draggable-item:active {
+  cursor: grabbing;
+}
+
+.drag-handle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+}
+
+.draggable-item.dragging {
+  opacity: 0.6;
+  border-style: dashed;
+}
+
+.empty-message {
+  margin: 0;
+  padding: 0.6rem 0.85rem;
+  color: #94a3b8;
+  font-size: 0.95rem;
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.order-label {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+}
+
+.order-actions {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.icon-button {
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: #fff;
+  border-radius: 10px;
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  background: #e2e8f0;
 }
 
 .item-card {
@@ -202,6 +288,104 @@ section.panel {
   margin-top: 0.5rem;
   font-size: 0.9rem;
   color: #16a34a;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  z-index: 10;
+}
+
+.modal-overlay.hidden {
+  display: none;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.5rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 24px 48px rgba(15, 23, 42, 0.2);
+  display: grid;
+  gap: 1rem;
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.modal.wide {
+  max-width: 760px;
+  max-height: 85vh;
+}
+
+.modal-body {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.modal.wide .modal-body {
+  overflow-y: auto;
+  max-height: 70vh;
+  padding-right: 0.35rem;
+}
+
+.field-group {
+  border: 1px dashed rgba(148, 163, 184, 0.6);
+  border-radius: 14px;
+  padding: 0.75rem;
+  background: #f8fafc;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.field-group.hidden {
+  display: none;
+}
+
+.field-group__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.field-group__list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.category-field-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.category-field-row input {
+  width: 100%;
+}
+
+.tertiary {
+  border: none;
+  background: none;
+  color: #2563eb;
+  font-weight: 600;
+  padding: 0.35rem 0.5rem;
+}
+
+.tertiary:hover {
+  text-decoration: underline;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
 }
 
 @media (max-width: 640px) {

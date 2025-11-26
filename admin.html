@@ -29,21 +29,62 @@
       <section class="panel">
         <h2>Quick Edit Form</h2>
         <p>Edit entries directly. Changes are reflected in the JSON editor automatically.</p>
-        <div class="filter-controls">
-          <label>
-            Section
-            <select id="sectionFilter"></select>
-          </label>
-          <label>
-            Category
-            <select id="categoryFilter" disabled></select>
-          </label>
+        <div class="reorder-panel orders-grid">
+          <div class="reorder-group">
+            <div class="reorder-header with-action">
+              <div>
+                <h3>Section Order</h3>
+                <p>Drag to reorder sections and select one to manage its categories.</p>
+              </div>
+              <button type="button" class="primary" id="addSectionButton">Add new section</button>
+            </div>
+            <ul id="sectionOrderList" class="draggable-list selectable" aria-label="Section order"></ul>
+          </div>
+          <div class="reorder-group">
+            <div class="reorder-header with-action">
+              <div>
+                <h3>Category Order</h3>
+                <p>Drag to reorder categories in the selected section.</p>
+              </div>
+              <button type="button" class="primary" id="addCategoryButton" disabled>Add new category</button>
+            </div>
+            <ul id="categoryOrderList" class="draggable-list selectable" aria-label="Category order"></ul>
+          </div>
+          <div class="reorder-group">
+            <div class="reorder-header with-action">
+              <div>
+                <h3>Item Order</h3>
+                <p>Drag to reorder items in the selected category.</p>
+              </div>
+              <button type="button" class="primary" id="addItemButton" disabled>Add new item</button>
+            </div>
+            <ul id="itemOrderList" class="draggable-list selectable" aria-label="Item order"></ul>
+          </div>
         </div>
-        <div class="item-toolbar">
-          <button type="button" class="primary" id="addItem">Add Item</button>
-        </div>
-        <div class="item-list" id="itemList"></div>
       </section>
+    </div>
+
+    <div class="modal-overlay hidden" id="entityModal" role="dialog" aria-modal="true" aria-labelledby="entityModalTitle">
+      <div class="modal">
+        <h3 id="entityModalTitle"></h3>
+        <div class="modal-body" id="entityModalBody"></div>
+        <div class="modal-actions">
+          <button type="button" class="danger" id="deleteEntity" hidden>Delete</button>
+          <button type="button" class="secondary" id="cancelEntity">Cancel</button>
+          <button type="button" class="primary" id="confirmEntity">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-overlay hidden" id="itemModal" role="dialog" aria-modal="true" aria-labelledby="itemModalTitle">
+      <div class="modal wide">
+        <h3 id="itemModalTitle"></h3>
+        <div class="modal-body" id="itemModalBody"></div>
+        <div class="modal-actions">
+          <button type="button" class="secondary" id="cancelItem">Cancel</button>
+          <button type="button" class="primary" id="confirmItem">Save</button>
+        </div>
+      </div>
     </div>
 
     <script src="scripts/admin.js" type="module"></script>
