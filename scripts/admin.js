@@ -24,6 +24,7 @@ const itemModalTitle = document.getElementById('itemModalTitle');
 const itemModalBody = document.getElementById('itemModalBody');
 const confirmItemButton = document.getElementById('confirmItem');
 const cancelItemButton = document.getElementById('cancelItem');
+const deleteItemButton = document.getElementById('deleteItem');
 
 let resourcesData = null;
 let selectedSectionId = null;
@@ -498,6 +499,10 @@ function openItemModal({ mode, itemId }) {
   itemModalTitle.textContent = mode === 'edit' ? '編輯項目' : '新增項目';
   itemModalBody.innerHTML = '';
 
+  if (deleteItemButton) {
+    deleteItemButton.hidden = mode !== 'edit';
+  }
+
   const nameZhField = createLabeledInput('中文名稱', 'itemNameZh');
   const nameEnField = createLabeledInput('English name', 'itemNameEn');
   const descZhField = createLabeledTextarea('中文描述', 'itemDescZh');
@@ -574,6 +579,26 @@ confirmItemButton.addEventListener('click', () => {
 });
 
 cancelItemButton.addEventListener('click', closeItemModal);
+
+if (deleteItemButton) {
+  deleteItemButton.addEventListener('click', () => {
+    if (!itemContext || itemContext.mode !== 'edit') return;
+
+    const section = resourcesData?.sections?.find((entry) => entry.id === selectedSectionId);
+    const category = section?.categories?.find((entry) => entry.id === selectedCategoryId);
+    if (!section || !category) return;
+
+    const itemIndex = category.items?.findIndex((entry) => entry.id === itemContext.itemId) ?? -1;
+    if (itemIndex === -1) return;
+
+    category.items.splice(itemIndex, 1);
+    setStatus('🗑️ 已刪除項目。');
+
+    syncEditor();
+    renderOrderingLists();
+    closeItemModal();
+  });
+}
 
 function createLabeledInput(labelText, id) {
   const wrapper = document.createElement('label');
