@@ -17,6 +17,7 @@ const entityModalTitle = document.getElementById('entityModalTitle');
 const entityModalBody = document.getElementById('entityModalBody');
 const confirmEntityButton = document.getElementById('confirmEntity');
 const cancelEntityButton = document.getElementById('cancelEntity');
+const deleteEntityButton = document.getElementById('deleteEntity');
 
 const itemModal = document.getElementById('itemModal');
 const itemModalTitle = document.getElementById('itemModalTitle');
@@ -349,6 +350,10 @@ function openEntityModal({ type, mode, entityId }) {
   entityModalTitle.textContent = `${mode === 'edit' ? '編輯' : '新增'}${type === 'section' ? '章節' : '分類'}`;
   entityModalBody.innerHTML = '';
 
+  if (deleteEntityButton) {
+    deleteEntityButton.hidden = mode !== 'edit';
+  }
+
   const nameZhField = createLabeledInput('中文名稱', 'entityNameZh');
   const nameEnField = createLabeledInput('English name', 'entityNameEn');
 
@@ -441,6 +446,33 @@ confirmEntityButton.addEventListener('click', () => {
 });
 
 cancelEntityButton.addEventListener('click', closeEntityModal);
+
+if (deleteEntityButton) {
+  deleteEntityButton.addEventListener('click', () => {
+    if (!entityContext || entityContext.mode !== 'edit') return;
+
+    if (entityContext.type === 'section') {
+      const sectionIndex = resourcesData.sections.findIndex((entry) => entry.id === entityContext.entityId);
+      if (sectionIndex === -1) return;
+      resourcesData.sections.splice(sectionIndex, 1);
+      selectedSectionId = resourcesData.sections[0]?.id ?? null;
+      const nextSection = resourcesData.sections.find((entry) => entry.id === selectedSectionId);
+      selectedCategoryId = nextSection?.categories?.[0]?.id ?? null;
+      setStatus('🗑️ 已刪除章節。');
+    } else {
+      const section = resourcesData.sections.find((entry) => entry.id === selectedSectionId);
+      const categoryIndex = section?.categories?.findIndex((entry) => entry.id === entityContext.entityId) ?? -1;
+      if (!section || categoryIndex === -1) return;
+      section.categories.splice(categoryIndex, 1);
+      selectedCategoryId = section.categories?.[0]?.id ?? null;
+      setStatus('🗑️ 已刪除分類。');
+    }
+
+    syncEditor();
+    renderOrderingLists();
+    closeEntityModal();
+  });
+}
 
 function openItemModal({ mode, itemId }) {
   const section = resourcesData?.sections?.find((entry) => entry.id === selectedSectionId);
