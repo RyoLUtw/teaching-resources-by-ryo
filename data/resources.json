@@ -168,6 +168,61 @@
           ]
         }
       ]
+    },
+    {
+      "id": "section-midgc3ml",
+      "title": {
+        "zh": "教師小工具",
+        "en": "Teacher's Tools"
+      },
+      "categories": [
+        {
+          "id": "category-midgccud",
+          "title": {
+            "zh": "寫作",
+            "en": "Writing"
+          },
+          "items": [
+            {
+              "id": "item-midgce7p",
+              "name": {
+                "zh": "批改小工具",
+                "en": "Feedback Generator"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/high-school-essay-grading-system/teacher.html",
+              "assistantChatbotUrl": ""
+            }
+          ]
+        },
+        {
+          "id": "category-mifp2xoe",
+          "title": {
+            "zh": "桌遊搭配APP",
+            "en": "Board Game Companion Apps"
+          },
+          "items": [
+            {
+              "id": "item-mifp31m0",
+              "name": {
+                "zh": "Stuffed Fables",
+                "en": "Stuffed Fables"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "",
+              "assistantChatbotUrl": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
