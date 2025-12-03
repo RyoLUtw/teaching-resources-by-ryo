@@ -221,6 +221,29 @@
               "assistantChatbotUrl": ""
             }
           ]
+        },
+        {
+          "id": "category-miq439yv",
+          "title": {
+            "zh": "管理工具",
+            "en": "Class management"
+          },
+          "items": [
+            {
+              "id": "item-miq43bhz",
+              "name": {
+                "zh": "匿名成績公布",
+                "en": "MaskMark Classroom Scores"
+              },
+              "description": {
+                "zh": "讓公布成績回饋變得安心、不尷尬，也不再需要犧牲學生的自尊。\n\n透過專屬的「秘密代號」，每位學生都能在投影畫面上找到屬於自己的分數，而不會看到他人的名字或資訊。\n老師只需要一台自己的裝置，就能在課堂上公平地分享成果，同時保護每位孩子的感受。\n\n所有資料都安全儲存在老師個人的 Google Drive 中，不需任何額外系統。\n這是一套為真正的教室情境而生的工具──簡單、安靜、而且善待每位學生。",
+                "en": "MaskMark Classroom Scores makes score sharing safe, comfortable, and free from embarrassment — without ever compromising a student’s sense of dignity.\n\nWith a personal “secret ID,” every student can find their own score on the projected screen, without seeing anyone else’s identity or information.\nAll the teacher needs is a single device. This ensures that performance can be shared fairly while fully protecting every learner’s feelings.\n\nAll data is securely stored in the teacher’s own Google Drive, with no extra systems required.\nIt’s a tool designed for real classroom needs — simple, quiet, and kind to every student."
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/MaskMark/",
+              "assistantChatbotUrl": ""
+            }
+          ]
         }
       ]
     }
