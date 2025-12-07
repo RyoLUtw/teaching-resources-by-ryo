@@ -78,6 +78,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/eagle-air-strike-voc-review-game/",
               "assistantChatbotUrl": "https://chatgpt.com/g/g-6911c0976bf08191be8ef71e6eb3cfba-dian-di-jiu-ying-wen-dan-zi-da-bao-ji"
+            },
+            {
+              "id": "item-miw12gx5",
+              "name": {
+                "zh": "五秒定律",
+                "en": "Five Second Rule"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/5-second-rule/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
