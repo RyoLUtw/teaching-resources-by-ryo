@@ -91,7 +91,7 @@
               },
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/5-second-rule/",
-              "assistantChatbotUrl": ""
+              "assistantChatbotUrl": "https://chatgpt.com/g/g-69366184ee78819199187475edc251e9-5-second-rule-prompt-generator"
             }
           ]
         },
@@ -110,6 +110,38 @@
             "zh": "線上互動教材"
           },
           "items": []
+        }
+      ]
+    },
+    {
+      "id": "section-miwpqhkt",
+      "title": {
+        "zh": "文法學習",
+        "en": "Grammar Learning"
+      },
+      "categories": [
+        {
+          "id": "category-miwpqz2k",
+          "title": {
+            "zh": "練習題產生器",
+            "en": "Practice Question Generators"
+          },
+          "items": [
+            {
+              "id": "item-miwpr0qt",
+              "name": {
+                "zh": "Which is what?",
+                "en": "Which is what?"
+              },
+              "description": {
+                "zh": "透過有層次的選擇題，引導學習者慢慢釐清 WH 副詞與關係代名詞的使用差別，幫助你建立更穩固的從句直覺，而不是只靠死記。",
+                "en": "This custom GPT uses thoughtfully designed multiple-choice questions to guide learners in gradually clarifying the differences between WH-adverbs and relative pronouns, helping you build a more solid intuition for using clauses instead of relying on memorization alone."
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://chatgpt.com/g/g-680a4678dcac8191b72d5cc58141c8ba-which-is-what",
+              "assistantChatbotUrl": ""
+            }
+          ]
         }
       ]
     },
