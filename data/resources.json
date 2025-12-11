@@ -92,6 +92,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/5-second-rule/",
               "assistantChatbotUrl": "https://chatgpt.com/g/g-69366184ee78819199187475edc251e9-5-second-rule-prompt-generator"
+            },
+            {
+              "id": "item-mj1gqgch",
+              "name": {
+                "zh": "Snake",
+                "en": "Snake"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "",
+              "assistantChatbotUrl": "https://chatgpt.com/g/g-693ab6d831108191a232497e19a3a912-snake-voc-content-generator"
             }
           ]
         },
