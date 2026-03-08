@@ -302,6 +302,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/MaskMark/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-mmhwigjk",
+              "name": {
+                "zh": "英文各項能力評估",
+                "en": "English Proficiency Skills Test"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/Basic-English-Skills-Test/",
+              "assistantChatbotUrl": ""
             }
           ]
         }
