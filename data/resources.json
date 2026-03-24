@@ -160,6 +160,38 @@
       ]
     },
     {
+      "id": "section-mn4ay0ew",
+      "title": {
+        "zh": "寫作學習",
+        "en": "Writing"
+      },
+      "categories": [
+        {
+          "id": "category-mn4aykiw",
+          "title": {
+            "zh": "輔助工具",
+            "en": "Helpers"
+          },
+          "items": [
+            {
+              "id": "item-mn4ayme0",
+              "name": {
+                "zh": "中譯英輔助小工具",
+                "en": "Chinese-English Translation Helper"
+              },
+              "description": {
+                "zh": "這個App引導學生一步一步把中文句子分解，分析子句、子句中的角色後，再按部就班構築英文句子。",
+                "en": "This app guides students step by step to break down Chinese sentences, analyze clauses and the roles within those clauses, and then systematically construct English sentences."
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/ch-en-translation-helper/",
+              "assistantChatbotUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "self-regulated-learning",
       "title": {
         "en": "Self-Regulated Learning",
