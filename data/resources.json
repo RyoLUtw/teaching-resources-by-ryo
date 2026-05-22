@@ -311,6 +311,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/Stuffed-Fable-Helper-App/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-mph1uxnb",
+              "name": {
+                "zh": "古墓奇兵桌遊App",
+                "en": "Tomb Raider Board Game App"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/Tomb-Raider-Board-Game-Helper/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
