@@ -339,6 +339,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/Tomb-Raider-Board-Game-Helper/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-mpr7lf89",
+              "name": {
+                "zh": "天合小隊",
+                "en": "Sky Team"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/Sky-Team-Helper-App/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
