@@ -106,6 +106,20 @@
               "tutorialUrl": "",
               "appUrl": "",
               "assistantChatbotUrl": "https://chatgpt.com/g/g-693ab6d831108191a232497e19a3a912-snake-voc-content-generator"
+            },
+            {
+              "id": "item-mpqam0ez",
+              "name": {
+                "zh": "機密代號",
+                "en": "Codename"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/Codename-Duet-Voc-Review/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
