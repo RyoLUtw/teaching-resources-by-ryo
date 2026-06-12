@@ -120,6 +120,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/Codename-Duet-Voc-Review/",
               "assistantChatbotUrl": "https://chatgpt.com/g/g-6a22dc60bdf481919f262c6b66aaf50f-codename-spymaster"
+            },
+            {
+              "id": "item-mqab5ckq",
+              "name": {
+                "zh": "切單字",
+                "en": "Vocabulary Slicing"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/voc-slicing/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
