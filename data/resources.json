@@ -134,6 +134,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/voc-slicing/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-mr3tm3sv",
+              "name": {
+                "zh": "電車難題",
+                "en": "Trial by Trolley"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/trolley-problem-voc-review/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
