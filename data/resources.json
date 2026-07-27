@@ -381,6 +381,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/Sky-Team-Helper-App/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-ms312er5",
+              "name": {
+                "zh": "五秒地城 (5-second Dungeon) 搭配APP",
+                "en": "5-second Dungeon Companion App"
+              },
+              "description": {
+                "zh": "新增「偵查階段」，讓玩家根據App上顯示的卡牌單字，辨識下一張遭遇的大門卡應該是哪一張(須將卡牌上的單字用盒蓋遮住)，若辨識錯誤將減少剩餘遊戲時間，藉此增加玩家學習大門卡上單字的機會。",
+                "en": "Added a 'Recon Phase' to the game that asks players to select the corresponding Door Card (card text covered by the game box) prompted by the App. When choosing incorrectly, a penalty is applied and reducing the remaining time available for players to beat the current dungeon. By doing so, the game adds a layer for players to learn the vocabulary from the Door Cards."
+              },
+              "tutorialUrl": "",
+              "appUrl": " https://ryolutw.github.io/5-minute-dungeon-timer/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
