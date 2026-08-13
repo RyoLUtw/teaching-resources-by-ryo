@@ -395,6 +395,20 @@
               "tutorialUrl": "",
               "appUrl": " https://ryolutw.github.io/5-minute-dungeon-timer/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-msrdcs8p",
+              "name": {
+                "zh": "政變疑雲(Coup) 小幫手APP",
+                "en": "Coup Helper App"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/coup-helper-app/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
