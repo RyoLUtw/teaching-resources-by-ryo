@@ -170,6 +170,38 @@
       ]
     },
     {
+      "id": "section-mt1jwgjq",
+      "title": {
+        "zh": "閱讀技巧",
+        "en": "Reading Skills"
+      },
+      "categories": [
+        {
+          "id": "category-mt1jxo3i",
+          "title": {
+            "zh": "小工具",
+            "en": "Useful Tools"
+          },
+          "items": [
+            {
+              "id": "item-mt1jxoye",
+              "name": {
+                "zh": "句子切割器",
+                "en": "Sentence slicer"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/sentence-slicer/",
+              "assistantChatbotUrl": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "section-miwpqhkt",
       "title": {
         "zh": "文法學習",
