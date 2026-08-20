@@ -177,6 +177,29 @@
       },
       "categories": [
         {
+          "id": "category-mt1cspw1",
+          "title": {
+            "zh": "Grammaring 文法學習",
+            "en": "Learn via Grammaring"
+          },
+          "items": [
+            {
+              "id": "item-mt1csr5l",
+              "name": {
+                "zh": "連綴動詞(to+V vs Ving",
+                "en": "Verb complements (Gerund vs Full infinitive)"
+              },
+              "description": {
+                "zh": "",
+                "en": ""
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/verb-complements/",
+              "assistantChatbotUrl": ""
+            }
+          ]
+        },
+        {
           "id": "category-miwpqz2k",
           "title": {
             "zh": "練習題產生器",
