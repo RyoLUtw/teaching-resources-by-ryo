@@ -148,6 +148,20 @@
               "tutorialUrl": "",
               "appUrl": "https://ryolutw.github.io/trolley-problem-voc-review/",
               "assistantChatbotUrl": ""
+            },
+            {
+              "id": "item-mt2rcvu3",
+              "name": {
+                "zh": "知意型不難(動詞片語遊戲)",
+                "en": "Put N Turn(Verb Phrase Game)"
+              },
+              "description": {
+                "zh": "《知意型不難》透過「放動詞片語、翻介係詞卡」的玩法，引導玩家先理解小品詞的語義目的，再掌握動詞片語形式。知其意，用其型便不難。\n",
+                "en": "Put N' Turn teaches verb phrases through card play: place verb phrase cards, turn particle cards, and learn how each particle’s semantic purpose shapes the phrase form."
+              },
+              "tutorialUrl": "",
+              "appUrl": "https://ryolutw.github.io/Put-N-Turn/",
+              "assistantChatbotUrl": ""
             }
           ]
         },
